@@ -4,3 +4,4 @@ A neural network was trained to measure fetal [head-circumference](https://githu
 
 
 ## Set up
+See [setup](/setup) for details of installing libraries and downloading data set 
