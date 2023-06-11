@@ -1,3 +1,3 @@
 # Source Files
 
-These are the source files used my [Makefile](../Makefile).
+These are the source files used by [Makefile](../Makefile).
