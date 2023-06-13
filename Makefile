@@ -1,7 +1,7 @@
 #change DLIB_DIR to where you downloaded d-lib
 LOCAL_DIR = /home/$(USER)/local
 DLIB_DIR = $(LOCAL_DIR)/dlib/source/dlib-19.24
-ULTRASOUND_DIR = $(LOCAL_DIR)/ultrasound/test_set 
+ULTRASOUND_DIR = $(LOCAL_DIR)/ultrasound/
 
 CXX = g++
 CFLAGS = -O3 -lpthread -lX11 -std=c++17 -I$(DLIB_DIR) -DDLIB_PNG_SUPPORT -lpng

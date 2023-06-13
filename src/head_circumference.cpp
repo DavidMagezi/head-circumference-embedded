@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
 
     Image image(argv[1]);
     image.load_data("031_HC.png");
+    image.load_data("030_HC.png");
 
     return 0;
 }
