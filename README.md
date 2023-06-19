@@ -7,4 +7,4 @@ A neural network was trained to measure fetal [head-circumference](https://githu
 See [setup](/setup) for details of installing libraries and downloading data set 
 
 ## Active Geometry Shape Model
-To fit an ellipse, an [active geometry shape model](https:://doi.org/10.1016/j.cviu.2012.08.004), modified from the [github repository](https://github.com/wq2012/AGSM) shall be used. This approach is based on [gradient vector flow](https://www.iacl.ece.jhu.edu/static/gvc/).
+To fit an ellipse, an [active geometry shape model](https://doi.org/10.1016/j.cviu.2012.08.004), modified from the [github repository](https://github.com/wq2012/AGSM) shall be used. This approach is based on [gradient vector flow](https://www.iacl.ece.jhu.edu/static/gvf/).
