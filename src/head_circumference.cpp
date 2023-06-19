@@ -3,8 +3,11 @@
 #include <filesystem>
 #include <string>
 
+#include "active_geometric_shape/ellipse.h"
+
 #include "machine_learning/logger.h"
 #include "machine_learning/image.h"
+
 
 int main(int argc, char** argv) {
     Logger::set_levels(); // comment out to suppress output
@@ -24,6 +27,8 @@ int main(int argc, char** argv) {
     Image image(argv[1]);
     image.load_data("031_HC.png");
     image.load_data("030_HC.png");
+
+    Ellipse e;
 
     return 0;
 }
