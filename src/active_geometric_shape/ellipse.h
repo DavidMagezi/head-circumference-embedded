@@ -12,7 +12,7 @@ namespace ActiveGeomtericShape{
 ///
 ///\brief To find and fit an ellipse in 2D image data
 ///
-///Based on the article by Wang et al. (2012)
+///Based on Wang et al. (2012)
 ///
 class Ellipse{
 public:

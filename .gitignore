@@ -1,6 +1,6 @@
 objs
 bin
-documentation/html
+documentation/html/
 documentation/latex/Makefile
 *.aux
 *.idx
