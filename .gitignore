@@ -1,5 +1,6 @@
 objs
 bin
+documentation/html
 documentation/latex/Makefile
 *.aux
 *.idx
@@ -10,3 +11,4 @@ documentation/latex/Makefile
 *.sty
 *.tex
 *.toc
+
