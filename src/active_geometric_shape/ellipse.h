@@ -3,6 +3,17 @@
 #define DEF_AGS_ELLIPSE
 
 #include <vector>
+///
+///\brief Classes to fit predefined shapes to data
+///
+///Based on the article by Wang et al. (2012)
+///
+namespace ActiveGeomtericShape{
+///
+///\brief To find and fit an ellipse in 2D image data
+///
+///Based on the article by Wang et al. (2012)
+///
 class Ellipse{
 public:
     struct Image{
@@ -16,5 +27,6 @@ public:
 private:
     Ellipse::Image force_field_;
 };
+}//namespace ActiveGeometricShape
 #endif //DEF_AGS_ELLIPSE
 

@@ -13,13 +13,15 @@ EXEC_DIR = $(BASE_DIR)bin
 SRC_DIR = $(BASE_DIR)src
 OBJ_DIR =$(BASE_DIR)objs
 
+IQUOTE=-iquote$(SRC_DIR)
+
 DLIB_SRC=$(DLIB_DIR)/dlib/all/source
 
 TARGET_STEM = head_circumference
 TARGET = $(EXEC_DIR)/$(TARGET_STEM)
 
 _ML = machine_learning
-_ML_DEPS = logger.h image.h
+_ML_DEPS = image.h logger.h unet.h
 
 ML_OBJ_DIR = $(OBJ_DIR)/$(_ML)
 ML_SRC_DIR = $(SRC_DIR)/$(_ML)
@@ -47,13 +49,13 @@ $(ML_OBJ_DIR):
 	mkdir -p $@
 
 $(ML_OBJS): $(ML_OBJ_DIR)/%$(OBJ_EXT): $(ML_SRC_DIR)/%$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(ML_DEPS) | $(ML_OBJ_DIR)
-	$(CXX)  $< -c -o $@  $(CFLAGS) -iquote$(ML_SRC_DIR) 
+	$(CXX)  $< -c -o $@  $(CFLAGS) $(IQUOTE)
 
 $(AGS_OBJ_DIR):
 	mkdir -p $@
 
 $(AGS_OBJS): $(AGS_OBJ_DIR)/%$(OBJ_EXT): $(AGS_SRC_DIR)/%$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(AGS_DEPS) | $(AGS_OBJ_DIR)
-	$(CXX)  $< -c -o $@  $(CFLAGS) -iquote$(AGS_SRC_DIR) 
+	$(CXX)  $< -c -o $@  $(CFLAGS) $(IQUOTE)
 
 $(TARGET): $(SRC_DIR)/$(TARGET_STEM)$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(ML_OBJS) | $(EXEC_DIR)
 	@echo "Building $(TARGET) ..."

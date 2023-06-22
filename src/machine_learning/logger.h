@@ -1,12 +1,13 @@
 //Copyright (2023) Dr. David A. Magezi
 
-#ifndef DEF_LOGGER
-#define DEF_LOGGER
+#ifndef DEF_ML_LOGGER
+#define DEF_ML_LOGGER
 
 #include <string>
 
 #include <dlib/logger.h>
 
+namespace MachineLearning{
 class Logger{
 public:
     static void display_error_message(std::string error);
@@ -19,5 +20,6 @@ private:
     static dlib::logger info_log_;
     static dlib::logger test_log_;
 };
+}//namespace MachineLearning
 
-#endif //DEF_LOGGER
+#endif //DEF_ML_LOGGER

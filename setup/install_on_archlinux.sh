@@ -1,7 +1,7 @@
 #/!/bin/bash
 echo "Installing libraries necessary for head_circumference_embedded"
 echo "This will install libraries and download datasets on a archlinux host for quicker compilation and early testing"
-needed_packages=opencv wget unzip
+needed_packages=doxygen opencv wget unzip
 pacman -Q $needed_packages || sudo pacman -S --needed $needed_packages
 
 ultrasound_url=https://zenodo.org/record/1327317/files/

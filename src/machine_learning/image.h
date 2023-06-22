@@ -1,13 +1,14 @@
 //Copyright(2023) Dr. David A. Magezi 
 
-#ifndef DEF_IMAGE
-#define DEF_IMAGE
+#ifndef DEF_ML_IMAGE
+#define DEF_ML_IMAGE
 
 #include <filesystem>
 #include <string>
 #include <vector>
 
 
+namespace MachineLearning{
 class Image{
 public:
     Image(std::string ultrasound_folder);
@@ -29,5 +30,6 @@ private:
     inline static const std::string training_subfolder_ = "training_set/";
     std::filesystem::path ultrasound_folder_;
 };
+}//namespace MachineLearning
 
-#endif //DEF_IMAGE
+#endif //DEF_ML_IMAGE

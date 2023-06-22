@@ -2,9 +2,9 @@
 
 #include <dlib/misc_api.h>
 
-#include "logger.h"
+#include "machine_learning/logger.h"
 
-
+namespace MachineLearning{
 void Logger::display_error_message(std::string error){
     error_log_ << dlib::LINFO << error; //dlib::LERROR
 }
@@ -30,3 +30,4 @@ void Logger::set_levels(){
 dlib::logger Logger::error_log_("ERROR");
 dlib::logger Logger::info_log_("INFO");
 dlib::logger Logger::test_log_("TEST");
+}//namespace MachineLearning

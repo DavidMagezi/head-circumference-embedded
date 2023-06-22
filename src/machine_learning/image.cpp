@@ -5,9 +5,10 @@
 
 #include <dlib/image_io.h>
 
-#include "logger.h"
-#include "image.h"
+#include "machine_learning/image.h"
+#include "machine_learning/logger.h"
 
+namespace MachineLearning{
 Image::Image(std::string ultrasound_folder):
     test_status_(false),
     ultrasound_folder_(ultrasound_folder),
@@ -67,3 +68,4 @@ std::filesystem::path Image::get_mask_path(){
     Logger::display_info_message(image_path_.parent_path().append(mask_filename));
     return mask_path;
 }
+}//namespace MachineLearning

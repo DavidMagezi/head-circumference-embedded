@@ -1,2 +1,12 @@
 objs
 bin
+documentation/latex/Makefile
+*.aux
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.sty
+*.tex
+*.toc
