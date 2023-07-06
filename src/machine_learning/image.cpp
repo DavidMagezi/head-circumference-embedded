@@ -1,6 +1,7 @@
 //Copyright(2023) Dr. David A. Magezi 
 //This code is inspired by dnn_introduction_ex.cpp of dlib
 
+#include <algorithm>
 #include <sstream>
 
 #include <dlib/image_io.h>
@@ -13,7 +14,9 @@ Image::Image(std::string ultrasound_folder):
     test_status_(false),
     ultrasound_folder_(ultrasound_folder),
     current_subfolder_(test_status_ ? safe_append(ultrasound_folder,test_subfolder_) : safe_append(ultrasound_folder,training_subfolder_)),
-    image_path_(current_subfolder_){
+    image_path_(current_subfolder_),
+    mask_vec(0),
+    us_image_vec(0){
 }
 
 Image::~Image(){
@@ -30,6 +33,7 @@ void Image::load_data(std::string filename){
         Logger::display_info_message(loading_message);
         dlib::array2d<dlib::rgb_pixel> us_image;
         dlib::load_png(us_image,image_path_);
+        //std::copy(us_image.begin(),us_image.end(),std::back_inserter(us_image_vec));
         
         if (!test_status_){
             dlib::array2d<int> mask;

@@ -30,7 +30,7 @@ _ML_OBJS = $(_ML_DEPS:.h=.o)
 ML_OBJS = $(addprefix $(ML_OBJ_DIR)/, $(_ML_OBJS))
 
 _AGS = active_geometric_shape
-_AGS_DEPS = ellipse.h 
+_AGS_DEPS = ellipse.h gvf.h 
 
 AGS_OBJ_DIR = $(OBJ_DIR)/$(_AGS)
 AGS_SRC_DIR = $(SRC_DIR)/$(_AGS)
@@ -54,12 +54,12 @@ $(ML_OBJS): $(ML_OBJ_DIR)/%$(OBJ_EXT): $(ML_SRC_DIR)/%$(CPP_EXT) $(DLIB_SRC)$(CP
 $(AGS_OBJ_DIR):
 	mkdir -p $@
 
-$(AGS_OBJS): $(AGS_OBJ_DIR)/%$(OBJ_EXT): $(AGS_SRC_DIR)/%$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(AGS_DEPS) | $(AGS_OBJ_DIR)
+$(AGS_OBJS): $(AGS_OBJ_DIR)/%$(OBJ_EXT): $(AGS_SRC_DIR)/%$(CPP_EXT) $(AGS_DEPS) | $(AGS_OBJ_DIR)
 	$(CXX)  $< -c -o $@  $(CFLAGS) $(IQUOTE)
 
-$(TARGET): $(SRC_DIR)/$(TARGET_STEM)$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(ML_OBJS) | $(EXEC_DIR)
+$(TARGET): $(SRC_DIR)/$(TARGET_STEM)$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(AGS_OBJS) $(ML_OBJS) | $(EXEC_DIR)
 	@echo "Building $(TARGET) ..."
-	$(CXX) $< -o $@ $(DLIB_SRC)$(CPP_EXT) $(ML_OBJS) $(CFLAGS)
+	$(CXX) $< -o $@ $(DLIB_SRC)$(CPP_EXT) $(AGS_OBJS) $(ML_OBJS) $(CFLAGS)
 
 clean:
 	rm $(TARGET) $(ML_OBJS)

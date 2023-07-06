@@ -3,6 +3,7 @@
 #include <string>
 
 #include "active_geometric_shape/ellipse.h"
+#include "active_geometric_shape/gvf.h"
 
 #include "machine_learning/image.h"
 #include "machine_learning/logger.h"
@@ -30,6 +31,23 @@ int main(int argc, char** argv) {
     ML::Image image(argv[1]);
     image.load_data("031_HC.png");
     image.load_data("030_HC.png");
+
+
+    //debug start
+    //consider 
+    //1) convert from dlib to vector
+    //2) use QT to visualize (or OpenGL?)
+    AGS::double_vector f{0.1,0.2,0.3,0.4};
+    int m(2);
+    int n(2);
+    //debug end
+
+    double alpha(1.0);
+    double mu(0.1);
+    int iter(50);
+
+    AGS::GVF g(f,m,n,alpha,mu,iter);
+    //AGS::pair_double_vector u_v(g.calculate());
 
     AGS::Ellipse e;
 

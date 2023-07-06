@@ -29,6 +29,8 @@ private:
     inline static const std::string test_subfolder_ = "test_set/";
     inline static const std::string training_subfolder_ = "training_set/";
     std::filesystem::path ultrasound_folder_;
+    std::vector<int> mask_vec, us_image_vec;
+
 };
 }//namespace MachineLearning
 
