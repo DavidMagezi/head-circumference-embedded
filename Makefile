@@ -4,7 +4,9 @@ DLIB_DIR = $(LOCAL_DIR)/dlib/source/dlib-19.24
 ULTRASOUND_DIR = $(LOCAL_DIR)/ultrasound/
 
 CXX = g++
-CFLAGS = -O3 -lpthread -lX11 -std=c++17 -I$(DLIB_DIR) -DDLIB_PNG_SUPPORT -lpng
+INCLUDES = -I$(DLIB_DIR) -I/usr/include/opencv4
+CFLAGS = -O3 -std=c++17 $(INCLUDES) -DDLIB_PNG_SUPPORT 
+LIBRARIES = -lopencv_core -lpng -lpthread -lX11 
 OBJ_EXT = .o
 CPP_EXT =.cpp
 
@@ -59,7 +61,7 @@ $(AGS_OBJS): $(AGS_OBJ_DIR)/%$(OBJ_EXT): $(AGS_SRC_DIR)/%$(CPP_EXT) $(AGS_DEPS) 
 
 $(TARGET): $(SRC_DIR)/$(TARGET_STEM)$(CPP_EXT) $(DLIB_SRC)$(CPP_EXT) $(AGS_OBJS) $(ML_OBJS) | $(EXEC_DIR)
 	@echo "Building $(TARGET) ..."
-	$(CXX) $< -o $@ $(DLIB_SRC)$(CPP_EXT) $(AGS_OBJS) $(ML_OBJS) $(CFLAGS)
+	$(CXX) $< -o $@ $(DLIB_SRC)$(CPP_EXT) $(AGS_OBJS) $(ML_OBJS) $(CFLAGS) $(LIBRARIES)
 
 clean:
 	rm $(TARGET) $(ML_OBJS)

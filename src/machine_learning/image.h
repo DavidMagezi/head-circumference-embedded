@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 
+#include <opencv2/opencv.hpp>
 
 namespace MachineLearning{
 class Image{
@@ -30,7 +31,7 @@ private:
     inline static const std::string training_subfolder_ = "training_set/";
     std::filesystem::path ultrasound_folder_;
     std::vector<int> mask_vec, us_image_vec;
-
+    cv::Mat mask_cv, us_image_cv;
 };
 }//namespace MachineLearning
 
